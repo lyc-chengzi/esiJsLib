@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../Scripts/esijs/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        
+        function setFrameHeight() {
+            console.log("iframe加载完成，开始计算高度");
+            var defaultFrameHeight = parseInt($("#defaultFrameHeight").val());//获取页面可用高度
+            if (defaultFrameHeight === 0) {
+                defaultFrameHeight = getDefaultHeight();
+            }
+            var fm = document.getElementById("framebody");
+            var fmDocument = fm.contentDocument;
+            //console.log(fmDocument === fm.contentWindow.document)
+            console.log(fmDocument.body);
+            console.log("clientHeight=>" + fmDocument.body.clientHeight);
+            console.log("scrollHeight=>" + fmDocument.body.scrollHeight);
+            var bodyHeight = fmDocument.body.clientHeight;
+            if (defaultFrameHeight < fmDocument.body.clientHeight) {
+                fm.setAttribute("height", fmDocument.body.clientHeight + 10);
+            } else {
+                fm.setAttribute("height", defaultFrameHeight - 10);
+            }
+            console.log("iframe加载完成，高度计算完成");
+        }
+
+        //计算空白区域的高度
+        function getDefaultHeight() {
+            var initHeight = $(window).height() - 250;//假设除了iframe的其他高度为235
+            $("#framebody").attr("height", initHeight);
+            $("#defaultFrameHeight").val(initHeight);
+            return initHeight;
+        }
+
+        function changeToOnePage() {
+            document.getElementById("framebody").src = "iframbody.html?v=" + (new Date() - 0);
+        }
+
+        function changeToTwoPage() {
+            document.getElementById("framebody").src = "iframbody2.html?v=" + (new Date() - 0);
+        }
+        function changeToThreePage() {
+            document.getElementById("framebody").src = "iframbody3.html?v=" + (new Date() - 0);
+        }
+    </script>
+    <style>
+        .iframeclass { width:100%;}
+    </style>
+</head>
+<body>
+    <input id="defaultFrameHeight" value="0" type="hidden" />
+    <input id="change1" value="使用第一个frame页" type="button" onclick="changeToOnePage()" />
+    <input id="change2" value="使用第二个frame页" type="button" onclick="changeToTwoPage()" />
+    <input id="change2" value="使用第二个frame页" type="button" onclick="changeToThreePage()" />
+    <div style="height:200px; background-color:#0094ff;"></div>
+    <iframe id="framebody" class="iframeclass" frameborder="0" src="iframbody.html?v=1234" onload="setFrameHeight()"></iframe>
+    <script>
+        
+    </script>
+</body>
+</html>

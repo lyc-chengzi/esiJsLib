@@ -266,6 +266,10 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="testhtml\iframbody3.html" />
+    <Content Include="testhtml\iframbody2.html" />
+    <Content Include="testhtml\iframbody.html" />
+    <Content Include="testhtml\testFrameHeight.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
