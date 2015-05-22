@@ -1,0 +1,81 @@
+﻿@model IEnumerable<JavascriptLibrary.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    
+
+<h2>@ViewBag.thisname</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cUserCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cUserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cUserSex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role.cRoleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cUserPwd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cUserBirthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cUserSayword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cUserFlag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dCreateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cUserCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cUserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cUserSex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role.cRoleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cUserPwd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cUserBirthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cUserSayword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cUserFlag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dCreateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
