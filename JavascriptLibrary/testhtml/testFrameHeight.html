@@ -45,6 +45,13 @@
         function changeToThreePage() {
             document.getElementById("framebody").src = "iframbody3.html?v=" + (new Date() - 0);
         }
+
+        $(function () {
+            var s = $("#divtest")[0];
+            s.outerHTML + s.innerHTML
+
+            $(s.innerHTML).wrap(s.outerHTML);
+        });
     </script>
     <style>
         .iframeclass { width:100%;}
@@ -55,7 +62,7 @@
     <input id="change1" value="使用第一个frame页" type="button" onclick="changeToOnePage()" />
     <input id="change2" value="使用第二个frame页" type="button" onclick="changeToTwoPage()" />
     <input id="change2" value="使用第二个frame页" type="button" onclick="changeToThreePage()" />
-    <div style="height:200px; background-color:#0094ff;"></div>
+    <div id="divtest" style="height:200px; background-color:#0094ff;"></div>
     <iframe id="framebody" class="iframeclass" frameborder="0" src="iframbody.html?v=1234" onload="setFrameHeight()"></iframe>
     <script>
         
