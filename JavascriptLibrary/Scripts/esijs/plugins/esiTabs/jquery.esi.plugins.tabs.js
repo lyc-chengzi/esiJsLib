@@ -91,7 +91,6 @@
             //设置标签宽度
             var $tabBar = this.jQueryObj.find("div:first");
             var tabBarItemCount = this.tabBarItems.length;
-            alert(this.jQueryObj.width());
             this.tabBarItemWidth = parseInt(this.jQueryObj.width() / tabBarItemCount);
             $tabBar.find(" > ul > li").width(this.tabBarItemWidth);
             return this;
