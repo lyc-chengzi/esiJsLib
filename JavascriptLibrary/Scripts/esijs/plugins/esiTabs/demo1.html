@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+    <title>选项卡demo1</title>
+    <link rel="stylesheet" href="esiTabControlStyle.css" />
+    <style type="text/css">
+        body { margin:0; padding:0;}
+    </style>
+    <script type="text/javascript" src="../../jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../core/esiCore.js"></script>
+    <script type="text/javascript" src="jquery.esi.plugins.tabs.js"></script>
+    <script>
+        $(function () {
+            
+            //初始化标签页
+            var tab = $("#myTab").esiTab({
+                autoHeight: false,
+                otherHeight: 400,
+                tabClick: function () {
+                }
+            });
+
+            var tab2 = $("#myTab2").esiTab({
+                autoHeight: false,
+                otherHeight: 400,
+                tabClick: function () {
+                }
+            });
+        });
+        function showTabsInfo() {
+            var tab = $("#myTab").esiTab();
+            var tab2 = $("#myTab2").esiTab();
+            alert("tab的ID是：" + tab.ESITabID + "，高是" + tab.contentDivHeight);
+            alert("tab2的ID是：" + tab2.ESITabID + "，高是" + tab2.contentDivHeight);
+        }
+    </script>
+</head>
+<body>
+    <div id="myTab" class="esi_tabControl">
+        <div class="esi_tabControlBar">
+            <ul>
+                <li class="current" data-barindex="1">
+                    报表
+                </li>
+                <li data-barindex="2">
+                    趋势图
+                </li>
+                <li data-barindex="3">
+                    指标解释
+                </li>
+            </ul>
+        </div>
+        <div class="esi_tabControlItem" style="display:block;">
+            <style type="text/css">
+                .f-l_style { float: left; }
+                .f-c_style { float: center; }
+                .f-r_style { float: right; }
+                .f_l_style { float: left; }
+                .f_c_style { float: center; }
+                .f_r_style { float: right; }
+                .c-f_style { clear: both; }
+                .no_leftBorder_style { border-left: none; }
+                .no_rightBorder_style { border-right: none; }
+                .top_borderBold_style { border-top: solid 2px #000; }
+                .bottom_borderBold_style { border-bottom: solid 2px #000; }
+                .table_head_style { font-size: 22px; text-align: center; font-weight: 800; height: 50px; line-height: 45px; margin: 0; }
+                .table_th_style { height: 30px; }
+                .table_caption_style { text-align: center; height: 45px; line-height: 40px; font-size: 22px; font-weight: 800; }
+                .caption_span_style { font-size: 16px; }
+                .row_head_style { font-size: 14px; font-weight: 800; }
+                .tr_head_style { height: 44px; font-size: 14px; font-weight: 800; line-height: 22px; }
+                .tr_con_style { height: 30px; font-size: 14px; }
+                td_style { border-right: #000 1px solid #000; border-bottom: 1px solid #000; }
+                .td_width { width: 70px; }
+                td input { border: none; border-width: 0; width: 90%; height: 100%; text-align: right; padding: 0 4%; outline: none; }
+                .tr_color:hover td, .tr_color:hover td input { background: #efefef; }
+                .bkimg { background: url(/img/table/10_03.png) no-repeat center center; border: 1px solid #cccccc; }
+                .tr_color:hover td.row_head_style { background: #fff; }
+                .table_name_style { font-size: 22px; text-align: center !important; font-weight: 800; height: 50px; line-height: 45px; margin: 0; }
+                .table_period_style { font-size: 14px; font-weight: 600; height: 50px; line-height: 30px; margin: 0; }
+                .table_th { height: 30px; }
+                .td_right_style { border-top: 0 !important; border-left: 0 !important; border-right: 0 !important; border-bottom: 1px #000 solid !important; }
+                .table_width_style { width: 26cm; }
+                .boder_0_style { border: 0; }
+                .table_border_collapse_style { border-collapse: collapse; }
+            </style>
+
+            <table align="center" style="width:26cm;" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="2" class="table_caption_style"> 全市生产总值（构成） </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="table_th_style table_caption_style"
+                        style="border:0;">
+                        <span class="f-l_style caption_span_style">报送单位:  核算处 </span><span class="f-r_style caption_span_style">报告期: 2014年4季度<rptyear></rptyear><rpttime></rpttime></span>
+                    </td>
+                </tr>
+                <tr class="tr_head_style">
+                    <td align="center" id="292-3-1" col="1" colspan="1" istitle="true" rowspan="1" row="3" class="no_leftBorder_style top_borderBold_style" style="border-top:2px solid #000;border-left:0;border-right:1px solid #000;border-bottom:2px solid #000;">
+                        全市生产总值构成（％）（季报）
+                    </td>
+                    <td align="center" id="292-3-2" col="2" colspan="1" istitle="false" rowspan="1" row="3" class="no_rightBorder_style top_borderBold_style" style="border-top:2px solid #000;border-left:1px solid #000;border-right:0;border-bottom:2px solid#000;;">
+                        累计（100）
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-4-1" col="1" colspan="1" istitle="true" rowspan="1" row="4" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        第一产业增加值
+                    </td>
+                    <td align="right" id="292-4-2" col="2" colspan="1"
+                        istitle="false" rowspan="1" itemnames="itemId:10103,timeframeId:200000011" row="4" formula="=SHT200(B31:C31)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        4.2
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left"
+                        id="292-5-1" col="1" colspan="1" istitle="true" rowspan="1" row="5" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        第二产业增加值
+                    </td>
+                    <td align="right" id="5-2"
+                        col="2" colspan="1" istitle="false" rowspan="1" row="5" formula="=SHT200(B32:C32)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">44.6</td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-6-1" col="1" colspan="1" istitle="true" rowspan="1" row="6" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        ＃工业
+                    </td>
+                    <td align="right" id="6-2" col="2" colspan="1" istitle="false" rowspan="1" row="6" formula="=SHT200(B33:C33)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        39.3
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-7-1" col="1" colspan="1" istitle="true" rowspan="1" row="7" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        建筑业
+                    </td>
+                    <td align="right" id="7-2" col="2" colspan="1" istitle="false" rowspan="1" row="7" formula="=SHT200(B34:C34)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        5.3
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-8-1" col="1" colspan="1" istitle="true" rowspan="1" row="8" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        第三产业增加值
+                    </td>
+                    <td align="right" id="8-2" col="2" colspan="1" istitle="false" rowspan="1" row="8" formula="=SHT200(B35:C35)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        51.2
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-9-1" col="1" colspan="1" istitle="true" rowspan="1" row="9" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        第三产业增加值构成（％）（季报）&nbsp;
+                    </td>
+                    <td align="right" id="292-9-2" col="2" colspan="1" istitle="false" rowspan="1" row="9" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        累计（100
+                        ）&nbsp;
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-10-1" col="1" colspan="1" istitle="true" rowspan="1" row="10" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        ＃交通运输仓储和邮政业
+                    </td>
+                    <td align="right" id="292-10-2" col="2" colspan="1" istitle="false" rowspan="1" itemnames="itemId:13915,timeframeId:200000011" row="10" formula="=SHT200(B37:C37)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        14.8
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-11-1" col="1" colspan="1" istitle="true" rowspan="1" row="11" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        批发和零售业
+                    </td>
+                    <td align="right" id="11-2" col="2" colspan="1" istitle="false" rowspan="1" row="11" formula="=SHT200(B38:C38)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        23.5</td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-12-1" col="1" colspan="1" istitle="true" rowspan="1" row="12" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        住宿和餐饮业
+                    </td>
+                    <td align="right" id="12-2" col="2" colspan="1" istitle="false" rowspan="1" row="12" formula="=SHT200(B39:C39)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        4.1
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-13-1" col="1" colspan="1" istitle="true" rowspan="1" row="13" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        金融业
+                    </td>
+                    <td align="right" id="13-2" col="2" colspan="1" istitle="false" rowspan="1" row="13" formula="=SHT200(B40:C40)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        11.7
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-14-1" col="1" colspan="1" istitle="true" rowspan="1" row="14" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        房地产业
+                    </td>
+                    <td align="right" id="14-2" col="2" colspan="1" istitle="false" rowspan="1" row="14" formula="=SHT200(B41:C41)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        10.3
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-15-1" col="1" colspan="1" istitle="true"
+                        rowspan="1" row="15" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        营利性服务业
+                    </td>
+                    <td align="right" id="15-2" col="2" colspan="1" istitle="false" rowspan="1" row="15" formula="=SHT200(B42:C42)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        6.9
+                    </td>
+                </tr>
+                <tr class="tr_con_style tr_color_style">
+                    <td align="left" id="292-16-1" col="1" colspan="1" istitle="true" rowspan="1" row="16" style="border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;">
+                        非营利性服务业
+                    </td>
+                    <td align="right" id="16-2" col="2" colspan="1" istitle="false" rowspan="1" row="16" formula="=SHT200(B43:C43)" class="no_rightBorder_style" style="border-top:0;border-left:1px solid #000;border-right:0;border-bottom:1px #000 solid;">
+                        13.7
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="esi_tabControlItem">
+            <div id="container" style="width:99%; height:400px; min-width:510px; margin:0 auto; overflow:auto;"></div>
+        </div>
+        <div class="esi_tabControlItem">
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+        </div>
+    </div>
+
+    <div id="myTab2" class="esi_tabControl">
+        <div class="esi_tabControlBar">
+            <ul>
+                <li class="current" data-barindex="1">
+                    报表2
+                </li>
+                <li data-barindex="2">
+                    趋势图2
+                </li>
+                <li data-barindex="3">
+                    指标解释2
+                </li>
+            </ul>
+        </div>
+        <div class="esi_tabControlItem" style="display:block;">
+            内容页1
+        </div>
+        <div class="esi_tabControlItem">
+            内容页2
+        </div>
+        <div class="esi_tabControlItem">
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+            内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3内容页3
+        </div>
+    </div>
+    <div style="position:relative; bottom:0; left:0;">
+        <input style="" type="button" id="btnShowInstance" onclick="showTabsInfo()" value="显示两个对象的信息" />
+    </div>
+</body>
+</html>
