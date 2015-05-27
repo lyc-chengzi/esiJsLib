@@ -250,6 +250,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\esijs\core\esiCore.js" />
+    <Content Include="Scripts\esijs\plugins\esiTabs\demo1.html" />
+    <Content Include="Scripts\esijs\plugins\esiTabs\esiTabControlStyle.css" />
+    <Content Include="Scripts\esijs\plugins\esiTabs\images\selectedItemBgimg.png" />
+    <Content Include="Scripts\esijs\plugins\esiTabs\jquery.esi.plugins.tabs.js" />
     <Content Include="Scripts\esijs\jquery-1.9.1.js" />
     <Content Include="Scripts\esijs\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -271,6 +276,7 @@
     <Content Include="testhtml\iframbody.html" />
     <Content Include="testhtml\testbranch.html" />
     <Content Include="testhtml\testFrameHeight.html" />
+    <Content Include="testhtml\testRegex.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

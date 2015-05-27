@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../Scripts/esijs/jquery-1.9.1.min.js"></script>
+    <script src="../Scripts/esijs/core/esiCore.js"></script>
+    <script>
+        function test() {
+            alert($esi.coreFn.isFloatNumber($("#txtnumber").val(), 2));
+        }
+    </script>
+</head>
+<body>
+    <input id="txtnumber" type="text" value=""/>
+    <button value="提交" type="button" onclick="test()">提交</button>
+</body>
+</html>
