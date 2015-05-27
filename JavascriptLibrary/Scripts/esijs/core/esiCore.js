@@ -1,11 +1,30 @@
 ﻿(function ($, w) {
     var ESIObject = {
-        version : "0.1",
+        version : "0.1.0",
         coreFn: {
             isNumber: function (text) {//判断是否是纯数字
-                var pattern = /^[0-9]*$/;
+                var pattern = /^[0-9]+$/;
                 return pattern.test(text);
-            },            
+            },
+            //判断是否是小数
+            //text:要判断的文本
+            //number:要验证的小数位数，可选参数，不设置此参数则不验证小数位数，是小数即可
+            isFloatNumber:function (text,number) {
+                var pattern;
+                if (number == undefined || number == null) {
+                    pattern = /^[0-9]+(\.[0-9]+)?$/;
+                    //pattern = /^[0-9]+\.[0-9]+$/;
+                }
+                else if (number <= 0) {
+                    //number必须大于0
+                    return false;
+                }
+                else {
+                    pattern = new RegExp("^[0-9]+\.[0-9]{" + number + "}$");
+                }
+                
+                return pattern.test(text);
+            },
             isMobilePhoneNubmer: function (number) {//判断手机号
                 var pattern = /^1(3|5|8)[0-9]{9}$/;
                 return pattern.test(number);
