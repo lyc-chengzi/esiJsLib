@@ -61,17 +61,20 @@
 		},
 		showMessage: function (msg) {
 			var self = this;
-			if (msg) {
-				this.jQueryObj.html(msg);
+			if (self.isShow() == false) {
+				if (msg) {
+					this.jQueryObj.html(msg);
+				}
+				this.jQueryObj.attr(this.showStateID, "true");
+				this.jQueryObj.css("top", "0px");
+				if (this.autoClose && this.autoCloseMS > 0) {
+					clearTimeout(this.closeFunc);
+					this.closeFunc = window.setTimeout(function () {
+						self.hideMessage();
+					}, self.autoCloseMS);
+				}
 			}
-			this.jQueryObj.attr(this.showStateID, "true");
-			this.jQueryObj.css("top", "0px");
-			if (this.autoClose && this.autoCloseMS > 0) {
-				clearTimeout(this.closeFunc);
-				this.closeFunc = window.setTimeout(function () {
-					self.hideMessage();
-				}, self.autoCloseMS);
-			}
+			
 		},
 		hideMessage: function () {
 			this.jQueryObj.attr(this.showStateID, "false");

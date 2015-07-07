@@ -14,7 +14,7 @@
             $("#btnShow").on("click", function (e) {
                 message.autoClose = true;
                 message.autoCloseMS = 2000;
-                message.showMessage();
+                message.showMessage('<span style="color:red">错误</span>');
             });
 
             $("#btnHide").on("click", function (e) {
@@ -23,7 +23,7 @@
         });
     </script>
 </head>
-<body>
+<body style="height:2000px;">
     <div id="demo" class="esiMessage">
         提示信息
     </div>
