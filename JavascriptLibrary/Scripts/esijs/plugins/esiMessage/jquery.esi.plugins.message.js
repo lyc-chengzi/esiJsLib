@@ -66,7 +66,7 @@
 					this.jQueryObj.html(msg);
 				}
 				this.jQueryObj.attr(this.showStateID, "true");
-				this.jQueryObj.css("top", "0px");
+				this.jQueryObj.css("top", (this.hideHeight - 70) + "px");
 				if (this.autoClose && this.autoCloseMS > 0) {
 					clearTimeout(this.closeFunc);
 					this.closeFunc = window.setTimeout(function () {
