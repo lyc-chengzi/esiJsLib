@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>第一课  了解JavaScript</title>
+    <script type="text/javascript">
+        var first = 0;
+        var second = 2;
+        var third = "2";
+        
+        function factorial(num) {
+            if (num <= 1) { return 1; }            else {
+                return num * arguments.callee(num - 1);
+            }
+        }        var other = factorial;        factorial = function(num) {
+            return 0;
+        }                console.log(other(5));        console.log(factorial(5));
+    </script>
+</head>
+<body>
+    <div id="div1" style="height:100px; border:1px solid #0094ff;" >
+        div内容
+    </div>
+</body>
+</html>
