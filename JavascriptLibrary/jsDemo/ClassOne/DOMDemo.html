@@ -3,18 +3,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>第一课  了解JavaScript</title>
+    <script src="../../Scripts/jquery-1.8.2.min.js"></script>
     <script type="text/javascript">
-        var first = 0;
-        var second = 2;
-        var third = "2";
+        var student = {
+            "name": "网恭喜",
+            "age": 18
+        };
         
-        function factorial(num) {
-            if (num <= 1) { return 1; }            else {
-                return num * arguments.callee(num - 1);
-            }
-        }        var other = factorial;        factorial = function(num) {
-            return 0;
-        }                console.log(other(5));        console.log(factorial(5));
+        //工厂模式
+        function teacher(name, age) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            return o;
+        }
+
+        //构造函数模式
+        function type2(name,age) {
+            //this.name = name;            this.age = age || 0;                    }
+        type2.prototype = {
+            run: function () {
+                alert("running");
+            },
+            cry: function () {
+            },
+            sex: "男",
+            name: "null"
+        };
+
+
+        $(function () {
+            var t2 = new type2();            t2.name = "sdfsdf";            console.log(t2.name);            var t3 = new type2();            console.log(t3.name);            //t2.name = "t2";            //console.log(t2.hasOwnProperty("name"));            ////t2.name = "t2";            //t2.sex = "asdfasfd";            ////console.log(t2.name);            ////delete t2.name;            ////console.log(t2.name);            //var t3 = new type2();            //t3.sex = "fffff";            //console.log("name" in t2);                    });                
     </script>
 </head>
 <body>

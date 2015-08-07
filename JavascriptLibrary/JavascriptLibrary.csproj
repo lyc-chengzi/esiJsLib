@@ -261,6 +261,10 @@
     <Content Include="Scripts\esijs\plugins\esiTabs\jquery.esi.plugins.tabs.js" />
     <Content Include="Scripts\esijs\jquery-1.9.1.js" />
     <Content Include="Scripts\esijs\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\esijs\plugins\jmpadPage\jmpadPage.css" />
+    <Content Include="Scripts\esijs\plugins\jmpadPage\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\esijs\plugins\jmpadPage\jquery.esi.plugins.jmpadPage.js" />
+    <Content Include="Scripts\esijs\plugins\jmpadPage\leftMenuPage.html" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

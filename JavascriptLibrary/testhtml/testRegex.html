@@ -9,6 +9,23 @@
         function test() {
             alert($esi.coreFn.isFloatNumber($("#txtnumber").val(), 2));
         }
+
+        ///测试自己的each方法
+        $.fn.myeach = function () {
+            var $this = $(this);
+            if ($this.length > 1) {
+                for (var i = 0; i < $this.length; i++) {
+                    console.log($this[i].id);
+                }
+            }
+        };
+        
+        
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("div").myeach();
+        });
     </script>
 </head>
 <body>
@@ -18,5 +35,9 @@
         <legend>标题</legend>
         <p>asdfasdfds</p>
     </fieldset>
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
 </body>
 </html>
