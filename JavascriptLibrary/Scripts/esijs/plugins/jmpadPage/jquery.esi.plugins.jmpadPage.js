@@ -35,7 +35,7 @@
     //pagebody对象-----------------------------------------------------------------------------
     function pageBodyObj() {
         //继承属性：jqueryObj
-        this.jqueryObj = null;
+        pageBase.call(this);
     }
 
     pageBodyObj.prototype = new pageBase();
@@ -45,10 +45,14 @@
     function broadSideMenuBase(jobj, pobj) {
         if (jobj) {
             this.jqueryObj = jobj;
+        } else {
+            this.jqueryObj = null;
         }
         if (pobj) {
             this.pageBodyObj = pobj;
-        }        
+        } else {
+            this.pageBodyObj = null;
+        }
     }
     broadSideMenuBase.prototype = new pageBase();
     ///是否显示key
@@ -68,17 +72,17 @@
         }
     };
     ///显示
-    broadSideMenuBase.prototype.show= function () {
+    broadSideMenuBase.prototype.show = function () {
         var isShow = this.isShow();
         if (!isShow) {
-            var _self = this;            
+            var _self = this;
             var $sideMenu = this.jqueryObj;
 
             var animateProperty = {};
             //如果是左侧菜单
             if (_self instanceof leftMenuObj) {
                 animateProperty = { "left": "0px" }
-            //如果是右侧菜单
+                //如果是右侧菜单
             } else if (_self instanceof rightMenuObj) {
                 animateProperty = { "right": "0px" }
             } else {
@@ -91,10 +95,10 @@
         }
     };
     ///push方式显示
-    broadSideMenuBase.prototype.showWithPush= function () {
+    broadSideMenuBase.prototype.showWithPush = function () {
         var isShow = this.isShow();
         if (!isShow) {
-            var _self = this;            
+            var _self = this;
             var $sideMenu = this.jqueryObj;
             var animateProperty = {};
             var paddingType = "";
@@ -168,7 +172,7 @@
 
         }
     };
-    
+
 
     //左侧菜单-----------------------------------------------------------------------------
     function leftMenuObj(jobj, pobj) {
@@ -249,7 +253,7 @@
             var $rightMenuJqueryObj = $("div." + self.rightMenuClass, self.jqueryObj);
             if ($rightMenuJqueryObj.length == 1) {
                 self.rightMenu = new rightMenuObj($rightMenuJqueryObj, self.pageBody.jqueryObj);
-            }            
+            }
             //缓存pageContent对象
             self.pageContent = new pageContentObj();
             self.pageContent.jqueryObj = $("div." + self.pageContentClass, self.jqueryObj);
