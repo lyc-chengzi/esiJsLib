@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>js继承</title>
+    <style>
+        html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: 500px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.jmpad_page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.jmpad_pageBody {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.jmpad_pageContent {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    overflow: auto;
+    background-color: #ffffff;
+    color:#000000;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.jmpad_leftMenu {
+    position: absolute;
+    padding: 0px;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    left: -300px;
+    z-index: 99;
+    background-color: green;
+    margin: 0px;
+}
+
+    .jmpad_leftMenu .jmpad_leftMenuButton {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background-color: black;
+        border-radius: 40px;
+        top: 40%;
+        right: -80px;
+        opacity: 0.8;
+        text-align:center;
+        line-height:80px;
+    }
+
+.jmpad_rightMenu {
+    position: absolute;
+    padding: 0px;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    right: -300px;
+    z-index: 99;
+    background-color: black;
+    margin: 0;
+}
+    .jmpad_rightMenu .jmpad_rightMenuButton {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background-color: black;
+        border-radius: 40px;
+        top: 40%;
+        left: -80px;
+        opacity: 0.8;
+        text-align:center;
+        line-height:80px;
+    }
+    </style>
+
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="demo.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /*
+        //1.
+        function obj1(name,age) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            
+            return o;
+        }
+
+        //2.
+        function obj2(name) {
+            this.name = name;
+        }
+        //3.
+        obj2.prototype.run = function () {
+            alert("run");
+        }
+        */
+
+
+        /*
+        //1.
+        function superObj(name) {
+            this.name = name;
+        }
+
+        function subObj(age) {
+            superObj.call(this, "sub");
+            this.age = age;
+        }
+
+
+        //2.prototype
+        function sub2() {
+            
+        }
+       
+        sub2.prototype = new superObj("sub2");
+        */
+
+        var page;
+        $(function () {
+            page = $("jmpageDiv").pageDemo();
+
+            $("div.jmpad_leftMenuButton").on("click", function () {
+                //page.showLeftMenu();
+                if (page.leftMenu.isShow()) {
+                    page.hideLeftMenu();
+                } else {
+                    page.showLeftMenu();
+                }
+            });
+
+            $("div.jmpad_rightMenuButton").on("click", function () {
+                //page.showLeftMenu();
+                if (page.rightMenu.isShow()) {
+                    page.hideRightMenu();
+                } else {
+                    page.showRightMenu();
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="jmpageDiv" class="jmpad_page">
+        <div class="jmpad_pageBody">
+            <div class="jmpad_leftMenu">
+                <div class="jmpad_leftMenuButton">左</div>
+                左侧菜单
+            </div>
+            <div class="jmpad_rightMenu">
+                <div class="jmpad_rightMenuButton">右</div>
+                右侧菜单
+            </div>
+            <div class="jmpad_pageContent">
+                //1.创建队列组
+                dispatch_group_t group = dispatch_group_create();
+                //2.创建队列
+                dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                //3.多次使用队列组的方法执行任务, 只有异步方法
+                //3.1.执行3次循环
+                dispatch_group_async(group, queue, ^{
+                for (NSInteger i = 0; i < 3; i++) {
+                NSLog(@"group-01 - %@", [NSThread currentThread]);
+                }
+                });
+                //3.2.主队列执行8次循环
+                dispatch_group_async(group, dispatch_get_main_queue(), ^{
+                for (NSInteger i = 0; i < 8; i++) {
+                NSLog(@"group-02 - %@", [NSThread currentThread]);
+                }
+                });
+                //3.3.执行5次循环
+                dispatch_group_async(group, queue, ^{
+                for (NSInteger i = 0; i < 5; i++) {
+                NSLog(@"group-03 - %@", [NSThread currentThread]);
+                }
+                });
+                //4.都完成后会自动通知
+                dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                NSLog(@"完成 - %@", [NSThread currentThread]);
+                });
+            </div>
+        </div>
+    </div>
+</body>
+</html>
