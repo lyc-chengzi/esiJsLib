@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>jquery基础</title>
+    <style type="text/css">
+        html, body {
+            margin:0;
+            padding:0;
+            
+            height:100%;
+            overflow:auto;
+            
+        }
+        html {
+            width:100%;
+        }
+        body {
+            padding:0 5px 0 5px;
+        }
+
+        body > div {
+            margin-top:10px;
+            border:#0094ff solid 1px;
+            height:200px;
+        }
+
+        
+    </style>
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        
+        function addAnimate(e) {
+            var n = e.data.num;
+            $("#div1").animate({ height: (2 * 100 * n) + "px", width: (2 * 100 * n) + "px" }, 2000, function () {
+                $(this).html("第" + n + "个动画完成");
+            });
+        }
+        $(function () {
+            for (var i = 1; i < 6; i++) {
+                $("#btnAnimate" + i).on("click", { "num": i }, addAnimate);
+            }
+            
+            $("#btnAddLine").on("click", function () {
+                var $table =  $("#div2 #testTable");
+                var $tempTR = $table.find("tbody tr:first").clone();
+                $table.append($tempTR);
+            });
+        });
+        $(function () {
+            //增行操作
+            $("#btnAddLine").on("click.test", function () {
+                var $table = $("#div2 #testTable");
+                var $tempTR = $table.find("tbody tr:first").clone();
+                $table.append($tempTR);
+            });
+            //alert
+            $("#btnAddLine").on("click", function () {
+                alert("click");
+            });
+
+            $("#btnRemoveLine").on("click", function () {
+                //只调用.test 的click事件
+                $("#btnAddLine").trigger("click!");
+
+                //删除增行的click事件
+                $("#btnAddLine").off("click");
+
+                //遍历对象
+                $("#testTable > tbody tr").each(function (i,e) {
+                    var $tr = $(this);
+                    $tr.append("<td>asdfasdf</td>");
+                    $tr.addClass("sdfsdf");
+                });
+
+                jQuery.each($("#testTable > tbody tr"), function () {
+
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <input type="button" id="btnAnimate1" value="添加动画1"/>
+    <input type="button" id="btnAnimate2" value="添加动画2" />
+    <input type="button" id="btnAnimate3" value="添加动画3" />
+    <input type="button" id="btnAnimate4" value="添加动画4" />
+    <input type="button" id="btnAnimate5" value="添加动画5" />
+    <input type="button" id="btnAddLine" value="添加行" />
+    <input type="button" id="btnRemoveLine" value="删除最后一行" />
+    <br />
+    <div id="div1" style="height:100px; ">
+        div1
+    </div>
+    <div id="div2" style="border-color:#ff6a00; overflow:auto;" data-id="div2dataid" data-checkstate="true">
+        <table id="testTable">
+            <thead>
+                <tr>
+                    <th style="width:100px;">
+                        表头1
+                    </th>
+                    <th style="width:200px;">
+                        表头2
+                    </th>
+                    <th style="width:100px;">
+                        表头3
+                    </th>
+                    <th style="width:100px;">
+                        表头4
+                    </th>
+                    <th style="width:100px;">
+                        表头5
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>列1-1</td>
+                    <td><input type="text" value="列1-2" /></td>
+                    <td><span>列1-3</span></td>
+                    <td><div>列1-4</div></td>
+                    <td>列1-5</td>
+                </tr>
+                <tr>
+                    <td>列2-1</td>
+                    <td><input type="text" value="列2-2" /></td>
+                    <td><span>列2-3</span></td>
+                    <td><div>列2-4</div></td>
+                    <td>列2-5</td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+</body>
+</html>
