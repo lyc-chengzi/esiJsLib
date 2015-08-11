@@ -43,16 +43,8 @@
 
     //侧边菜单父类
     function broadSideMenuBase(jobj, pobj) {
-        if (jobj) {
-            this.jqueryObj = jobj;
-        } else {
-            this.jqueryObj = null;
-        }
-        if (pobj) {
-            this.pageBodyObj = pobj;
-        } else {
-            this.pageBodyObj = null;
-        }
+        this.jqueryObj = null;
+        this.pageBodyObj = null;
     }
     broadSideMenuBase.prototype = new pageBase();
     ///是否显示key
