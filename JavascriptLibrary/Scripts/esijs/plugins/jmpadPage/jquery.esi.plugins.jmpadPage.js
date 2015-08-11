@@ -72,7 +72,7 @@
         }
     };
     ///显示
-    broadSideMenuBase.prototype.show = function () {
+    broadSideMenuBase.prototype.show = function (callback) {
         var isShow = this.isShow();
         if (!isShow) {
             var _self = this;
@@ -91,11 +91,14 @@
             $sideMenu.animate(animateProperty, function () {
                 $sideMenu.attr(_self.showTypeKey, showTypeList.normal);
                 $sideMenu.attr(_self.isShowKey, showStateList.show);
+                if (callback && typeof callback == "function") {
+                    callback.call($sideMenu);//调用回调函数，并传回sideMenu的jquery对象
+                }
             });
         }
     };
     ///push方式显示
-    broadSideMenuBase.prototype.showWithPush = function () {
+    broadSideMenuBase.prototype.showWithPush = function (callback) {
         var isShow = this.isShow();
         if (!isShow) {
             var _self = this;
@@ -120,13 +123,15 @@
                 complete: function () {
                     $sideMenu.attr(_self.showTypeKey, showTypeList.push);
                     $sideMenu.attr(_self.isShowKey, showStateList.show);
-
+                    if (callback && typeof callback == "function") {
+                        callback.call($sideMenu);//调用回调函数，并传回sideMenu的jquery对象
+                    }
                 }
             });
         }
     };
     ///隐藏
-    broadSideMenuBase.prototype.hide = function () {
+    broadSideMenuBase.prototype.hide = function (callback) {
         var isShow = this.isShow();
         if (isShow) {
             var _self = this;
@@ -156,6 +161,9 @@
             if (showType == showTypeList.normal) {
                 $sideMenu.animate(animateProperty, function () {
                     $sideMenu.attr(_self.isShowKey, showStateList.hide);
+                    if (callback && typeof callback == "function") {
+                        callback.call($sideMenu);//调用回调函数，并传回sideMenu的jquery对象
+                    }
                 });
             } else if (showType == showTypeList.push) {
                 $sideMenu.animate(animateProperty, {
@@ -164,6 +172,9 @@
                     },
                     complete: function () {
                         $sideMenu.attr(_self.isShowKey, showStateList.hide);
+                        if (callback && typeof callback == "function") {
+                            callback.call($sideMenu);//调用回调函数，并传回sideMenu的jquery对象
+                        }
                     }
                 });
             } else {
@@ -275,29 +286,37 @@
         },
         ///左侧菜单显示
         ///ispush=>true则pageContent右移，否则覆盖
-        showLeftMenu: function (isPush) {
-            if (isPush) {
-                this.leftMenu.showWithPush();
+        showLeftMenu: function (isPush, callback) {
+            if (arguments.length == 1 && typeof(isPush) == "function") {
+                callback = isPush;
+                isPush = false;
+            }
+            if (isPush === true) {
+                this.leftMenu.showWithPush(callback);
             } else {
-                this.leftMenu.show();
+                this.leftMenu.show(callback);
             }
         },
         ///左侧菜单隐藏
-        hideLeftMenu: function () {
-            this.leftMenu.hide();
+        hideLeftMenu: function (callback) {
+            this.leftMenu.hide(callback);
         },
         ///右侧菜单显示
         ///ispush=>true则pageContent右移，否则覆盖
-        showRightMenu: function (isPush) {
-            if (isPush) {
-                this.rightMenu.showWithPush();
+        showRightMenu: function (isPush, callback) {
+            if (arguments.length == 1 && typeof (isPush) == "function") {
+                callback = isPush;
+                isPush = false;
+            }
+            if (isPush === true) {
+                this.rightMenu.showWithPush(callback);
             } else {
-                this.rightMenu.show();
+                this.rightMenu.show(callback);
             }
         },
         ///右侧菜单隐藏
-        hideRightMenu: function () {
-            this.rightMenu.hide();
+        hideRightMenu: function (callback) {
+            this.rightMenu.hide(callback);
         }
     };
 
