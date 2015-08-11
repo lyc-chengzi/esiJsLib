@@ -43,8 +43,8 @@
 
     //侧边菜单父类
     function broadSideMenuBase(jobj, pobj) {
-        this.jqueryObj = null;
-        this.pageBodyObj = null;
+        this.jqueryObj = jobj;
+        this.pageBodyObj = pobj;
     }
     broadSideMenuBase.prototype = new pageBase();
     ///是否显示key
@@ -110,7 +110,7 @@
             }
             $sideMenu.animate(animateProperty, {
                 step: function (n, t) {
-                    _self.pageBodyObj.css(paddingType, (300 + n) + "px");
+                    _self.pageBodyObj.css(paddingType, ($sideMenu.width() + n) + "px");
                 },
                 complete: function () {
                     $sideMenu.attr(_self.showTypeKey, showTypeList.push);
@@ -160,7 +160,7 @@
             } else if (showType == showTypeList.push) {
                 $sideMenu.animate(animateProperty, {
                     step: function (n, t) {
-                        _self.pageBodyObj.css(paddingType, (300 + n) + "px");
+                        _self.pageBodyObj.css(paddingType, ($sideMenu.width() + n) + "px");
                     },
                     complete: function () {
                         $sideMenu.attr(_self.isShowKey, showStateList.hide);
