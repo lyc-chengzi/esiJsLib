@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="./jmpadPage.css" rel="stylesheet" />
+    <script src="./jquery-1.9.1.min.js"></script>
+    <script src="./jquery.esi.plugins.jmpadPage.js"></script>
+    <script type="text/javascript">
+        var jmPage;
+        $(function () {
+            jmPage = $("#jmpageDiv").jmPage();
+            $(window).on("resize", function () {
+                jmPage.resetPageBodyHeight();
+            });
+            
+            $("div.jmpad_leftMenuButton").on("click", function () {
+                var isShow = jmPage.leftMenu.isShow();
+                if (isShow) {
+                    jmPage.hideLeftMenu();
+                } else {
+                    jmPage.showLeftMenu(true);
+                }
+            });
+
+            $("div.jmpad_rightMenuButton").on("click", function () {
+                var isShow = jmPage.rightMenu.isShow();
+                if (isShow) {
+                    jmPage.hideRightMenu();
+                } else {
+                    jmPage.showRightMenu(false);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="jmpageDiv" class="jmpad_page">
+        <div class="jmpad_topMenu"></div>
+        <div class="jmpad_pageBody">
+            <div class="jmpad_leftMenu">
+                <div class="jmpad_leftMenuButton">左</div>
+                左侧菜单
+            </div>
+            <div class="jmpad_rightMenu">   
+                <div class="jmpad_rightMenuButton">右</div>             
+                右侧菜单
+            </div>
+            <div class="jmpad_pageContent">
+                你好<br /><br /><br /><br /><br /><br /><br />
+                你好<br /><br /><br /><br /><br /><br /><br />
+                你好<br /><br /><br /><br /><br /><br /><br />
+                你好<br /><br /><br /><br /><br /><br /><br />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

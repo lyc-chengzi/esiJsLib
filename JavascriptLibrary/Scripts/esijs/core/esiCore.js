@@ -1,6 +1,17 @@
 ﻿(function ($, w) {
     var ESIObject = {
-        version : "0.1.0",
+        version: "0.1.0",
+        isDebug: true,
+        alert:function (msg) {
+            if(this.isDebug){
+                alert(msg);
+            }
+        },
+        log:function (o) {
+            if (this.isDebug) {
+                console.log(o);
+            }
+        },
         coreFn: {
             isNumber: function (text) {//判断是否是纯数字
                 var pattern = /^[0-9]+$/;

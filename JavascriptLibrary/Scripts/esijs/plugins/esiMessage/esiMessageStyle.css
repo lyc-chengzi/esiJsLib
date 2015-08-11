@@ -1,0 +1,21 @@
+﻿.esiMessage {
+    height: 50px;
+    width: 300px;
+    overflow: visible;
+    line-height: 22px;
+    background-color: #000000;
+    opacity: 0.8;
+    border-radius: 5px;
+    position: fixed;
+    top: -70px;
+    z-index: 999;
+    left: 50%;
+    margin-left: -150px;
+    padding: 5px;
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    transition: all 1s ease 0s;
+    -moz-transition: all 1s ease 0s;
+    -webkit-transition: all 1s ease 0s;
+}
