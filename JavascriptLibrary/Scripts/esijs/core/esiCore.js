@@ -188,6 +188,26 @@
                 return stockOption;
             }
         },
+        //移动端原始表处理库
+        mobileTableLib: {
+            //设置表格样式
+            //tableContainerSelector:table容器的jquery选择器表达式
+            //htmlStr:向table容器添加的html字符串（参数可省略）
+            initTableBasicStyle: function (tableContainerSelector, htmlStr) {
+                var $tableDiv = $(tableContainerSelector);
+                //不建议传入HTML字符串，最好在调用函数前手动添加到tableContainerID的对象中
+                if (htmlStr) {
+                    $tableDiv.append(htmlStr);
+                }
+
+                //删除自带的内置style样式
+                $("style", $tableDiv).remove();
+                $tableDiv.find("table").addClass("esiMobileTable").removeAttr("style");
+                $tableDiv.find("tr").removeAttr("style");
+                $tableDiv.find("td").removeAttr("style");
+
+            }
+        },
         plugins: {}
     };
     w.ESIObject = w.$esi = ESIObject;
