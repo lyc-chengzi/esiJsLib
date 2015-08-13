@@ -91,15 +91,43 @@
             //设置标签宽度
             var $tabBar = this.jQueryObj.find("div:first");
             var tabBarItemCount = this.tabBarItems.length;
-            this.tabBarItemWidth = parseInt(this.jQueryObj.width() / tabBarItemCount);
+            var marginTotal = 0;
+            var borderTotal = 0;
+            var paddingTotal = 0;
+            for (var i = 0; i < this.tabBarItems.length - 1; i++) {
+                var _thisBar = this.tabBarItems[i];
+
+                //margin
+                var l = parseInt(_thisBar.style.marginLeft);
+                var r = parseInt(_thisBar.style.marginRight);
+                marginTotal += isNaN(l) ? 0 : l;
+                marginTotal += isNaN(r) ? 0 : r;
+
+                //border
+                l = parseInt(_thisBar.style.borderLeft);
+                r = parseInt(_thisBar.style.borderRight);
+                borderTotal += isNaN(l) ? 0 : l;
+                borderTotal += isNaN(r) ? 0 : r;
+                //padding
+                l = parseInt(_thisBar.style.paddingLeft);
+                r = parseInt(_thisBar.style.paddingRight);
+                paddingTotal += isNaN(l) ? 0 : l;
+                paddingTotal += isNaN(r) ? 0 : r;
+                
+            }
+
+            this.tabBarItemWidth = parseInt((this.jQueryObj.width() - marginTotal - borderTotal - marginTotal) / tabBarItemCount);
             $tabBar.find(" > ul > li").width(this.tabBarItemWidth);
             return this;
         },
-        setContentHeight:function () {
-            //重新计算高度  
-            var $tabBar = this.jQueryObj.find("div:first");
-            this.contentDivHeight = $(window).height() - $tabBar.height() - this.otherHeight - 12;//-12减去内容页上填充
-            this.jQueryObj.find("div.esi_tabControlItem").height(this.contentDivHeight);
+        setContentHeight: function () {
+            if (this.autoHeight) {
+                //重新计算高度  
+                var $tabBar = this.jQueryObj.find("div:first");
+                this.contentDivHeight = $(window).height() - $tabBar.height() - this.otherHeight - 12;//-12减去内容页上填充
+                this.jQueryObj.find("div.esi_tabControlItem").height(this.contentDivHeight);
+            }
+            
             return this;
         },
         setCheckIndex:function (sIndex) {
