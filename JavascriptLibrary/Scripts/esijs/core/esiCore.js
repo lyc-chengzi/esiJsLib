@@ -41,6 +41,47 @@
                 return pattern.test(number);
             }
         },
+        //加载提示框
+        loading:{
+            loadingDivID: "_esiLoadingDiv",
+            _defaultTxt:"正在加载...",
+            _create:function () {
+                $("body").append('<div id="' + this.loadingDivID + '" class="loadingdiv">' +
+                                    '<div class="loading">' +
+                                    '</div>' +
+                                    '<div class="txt">' +
+                                        '<span>正在加载...</span>' +
+                                    '</div>' +
+                                    '</div>');
+            },
+            //显示loading
+            show: function (txt) {
+                var $loading = this.jqueryObj();
+                if (!$loading.length) {
+                    this._create();
+                }
+                $loading = this.jqueryObj();
+                if (txt) {
+                    $loading.find("div.txt span").html(txt);
+                } else {
+                    $loading.find("div.txt span").html(this._defaultTxt);
+                }
+                $loading.show();
+            },
+            //隐藏loading
+            hide: function () {
+                var $loading = this.jqueryObj();                
+                $loading.hide();
+            },
+            jqueryObj: function () {
+                return $("#" + this.loadingDivID);
+            },
+            reCreate: function () {
+                var $loading = this.jqueryObj();
+                $loading.remove();
+                this._create();
+            }
+        },
         //highcharts相关函数库
         highChartsFn: {
             getStockchartOptions: function (par_danwei) {
