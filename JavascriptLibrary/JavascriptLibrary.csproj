@@ -258,6 +258,10 @@
     <Content Include="Scripts\esijs\core\esiCoreStyle.css" />
     <Content Include="Scripts\esijs\core\images\loading1.gif" />
     <Content Include="Scripts\esijs\core\images\loading2.gif" />
+    <Content Include="Scripts\esijs\jquery-3.0.0Compat-alpha1.js" />
+    <Content Include="Scripts\esijs\jquery-3.0.0Compat-alpha1.min.js" />
+    <Content Include="Scripts\esijs\jquery-3.0.0-alpha1.js" />
+    <Content Include="Scripts\esijs\jquery-3.0.0-alpha1.min.js" />
     <Content Include="Scripts\esijs\plugins\esiMessage\demo1.html" />
     <Content Include="Scripts\esijs\plugins\esiMessage\jquery.esi.plugins.message.js" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
