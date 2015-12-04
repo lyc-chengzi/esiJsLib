@@ -12,7 +12,22 @@
                 console.log(o);
             }
         },
+        supportHTML5: function (id) {
+            return typeof (document.getElementById(id).style.transition) != "undefined";
+        },
         coreFn: {
+            //查找字符串中指定字符出现的次数
+            countSubstr: function (str, substr) {
+                var count;
+                var reg = new RegExp(substr, "g", "i");    //查找时忽略大小写
+                if (!str.match(reg)) {
+                    count = 0;
+                } else {
+                    count = str.match(reg).length;
+                }
+                //返回找到的次数
+                return count;
+            },
             isNumber: function (text) {//判断是否是纯数字
                 var pattern = /^[0-9]+$/;
                 return pattern.test(text);
