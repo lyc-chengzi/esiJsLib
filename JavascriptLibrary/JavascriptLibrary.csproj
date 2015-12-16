@@ -262,11 +262,17 @@
     <Content Include="Scripts\esijs\jquery-3.0.0Compat-alpha1.min.js" />
     <Content Include="Scripts\esijs\jquery-3.0.0-alpha1.js" />
     <Content Include="Scripts\esijs\jquery-3.0.0-alpha1.min.js" />
+    <Content Include="Scripts\esijs\plugins\esiAutocomplete\demo1.html" />
+    <Content Include="Scripts\esijs\plugins\esiAutocomplete\esiAutocomplete.css" />
+    <Content Include="Scripts\esijs\plugins\esiAutocomplete\images\selectedItemBgimg.png" />
+    <Content Include="Scripts\esijs\plugins\esiAutocomplete\jquery.esi.plugins.autocomplete.js" />
     <Content Include="Scripts\esijs\plugins\esiMessage\demo1.html" />
     <Content Include="Scripts\esijs\plugins\esiMessage\jquery.esi.plugins.message.js" />
+    <Content Include="Scripts\esijs\plugins\esiAutocomplete\demo1.json.js" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\esijs\core\esiCore.js" />
     <Content Include="Scripts\esijs\plugins\esiMessage\esiMessageStyle.css" />
+    <Content Include="Scripts\esijs\plugins\esiPluginBase.js" />
     <Content Include="Scripts\esijs\plugins\esiTabs\demo1.html" />
     <Content Include="Scripts\esijs\plugins\esiTabs\esiTabControlStyle.css" />
     <Content Include="Scripts\esijs\plugins\esiTabs\images\selectedItemBgimg.png" />
@@ -372,6 +378,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties Scripts_2esijs_2plugins_2esiAutocomplete_2demo1_1json__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

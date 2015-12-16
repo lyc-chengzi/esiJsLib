@@ -1,0 +1,35 @@
+﻿.esiAutocomplete {
+    position:absolute;
+    z-index:999;
+    width:300px;
+    height:400px;
+    overflow:auto;
+    top:20px;
+    left:20px;
+    border:1px solid #95C2BC;
+    font-family:'Microsoft YaHei',Courier New, Courier, monospace;
+    padding-top:2px;
+}
+
+    .esiAutocomplete .zb-info {
+    }
+        .esiAutocomplete .zb-info .title {
+            padding: 0 10px;
+            background-color: #F0F4FF;
+            color: #6AC7BE;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+        .esiAutocomplete .zb-info .des {
+            padding:10px;
+            color:#000;
+            line-height:20px;
+            font-size:12px;
+        }
+
+.des a {
+    color: #6AC7BE;
+    cursor:pointer;
+}
