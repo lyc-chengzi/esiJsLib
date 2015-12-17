@@ -9,7 +9,35 @@
     border:1px solid #95C2BC;
     font-family:'Microsoft YaHei',Courier New, Courier, monospace;
     padding-top:2px;
+    padding-bottom:30px;
 }
+
+    .esiAutocomplete .content {
+        position:relative;
+        overflow:auto;
+    }
+
+    .esiAutocomplete .tools {
+        background-color:#e3e4e9;
+        height:30px;
+        line-height:30px;
+        position:absolute;
+        bottom:0;
+        left:0;
+        width:100%;
+        text-align:center;
+    }
+
+        .esiAutocomplete .tools a {
+            cursor:pointer;
+            display:inline-block;
+            height:30px;
+        }
+
+            .esiAutocomplete .tools a.close {
+                font-size:14px; 
+                color:red;
+            }
 
     .esiAutocomplete .zb-info {
     }

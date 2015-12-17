@@ -22,6 +22,20 @@
             fac.init($("#firstAC"), {
                 "target": $("#test")
             });
+
+            fac.Render = function (filterData) {
+                if (!filterData || filterData.length == 0) {
+                    this.jQueryObj.find(".content").append("没有您要搜索的数据");
+                } else {
+                    for (var i = 0; i < filterData.length; i++) {
+                        var _data = filterData[i];
+                        this.jQueryObj.find(".content").append('<div class="zb-info">' +
+                                              '    <div class="title">' + _data.title + '</div>' +
+                                              '    <div class="des">' + _data.fixDes + '</div>' +
+                                              '</div>');
+                    }
+                }
+            };
         });
         
     </script>
