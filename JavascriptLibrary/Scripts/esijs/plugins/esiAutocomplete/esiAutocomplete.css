@@ -10,8 +10,12 @@
     font-family:'Microsoft YaHei',Courier New, Courier, monospace;
     padding-top:2px;
     padding-bottom:30px;
+    background-color:#ffffff;
+    display:block;
 }
-
+.esiAutocomplete div{
+	display:block;
+}
     .esiAutocomplete .content {
         position:relative;
         overflow:auto;
