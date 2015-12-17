@@ -43,7 +43,8 @@
                     .hide();
                 jqueryElemet.find("div.content").height(jqueryElemet.outerHeight() - 40);
                 jqueryElemet.find("div.tools a.close").on('click', function () {
-                    jqueryElemet.hide();
+                    _self.onClosingHandler(this);
+                    _self.close();
                     return false;
                 });
 
@@ -97,7 +98,18 @@
             } else {
                 return false;
             }
-        }        
+        },
+        //执行搜索操作
+        search: function () {
+            __targetEventHandler(this);
+        },
+        //下拉框关闭前执行的回调函数;$target=>关闭按钮的Dom对象;
+        onClosingHandler: function ($target) {
+
+        },
+        close: function () {
+            this.jQueryObj.hide();
+        }
     });
 
     ESIAutocomplete.prototype = subPlugins;
