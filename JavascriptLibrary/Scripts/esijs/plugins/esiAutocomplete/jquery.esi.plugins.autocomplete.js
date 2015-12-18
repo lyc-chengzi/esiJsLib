@@ -14,6 +14,8 @@
         this.targetKeyDownIndex = null;//事件延迟处理
         this.localData = null;//本地数据
         this.remoteURL = ""; //远程url
+        this.remoteTextKey = "text";
+        this.remoteRequestData = {};//远程请求参数
         this.loadDataType = 0;//加载数据的方式: 1--本地加载; 2--远程url加载
     }
     //对象集合定义
@@ -41,11 +43,15 @@
                     .width(op.width)
                     .height(op.height)
                     .hide();
-                jqueryElemet.find("div.content").height(jqueryElemet.outerHeight() - 40);
-                jqueryElemet.find("div.tools a.close").on('click', function () {
-                    _self.onClosingHandler(this);
-                    _self.close();
-                    return false;
+                jqueryElemet
+                    .find("div.content")
+                    .height(jqueryElemet.outerHeight() - 40);
+                jqueryElemet
+                    .find("div.tools a.close")
+                    .on('click', function () {
+                        _self.onClosingHandler(this);
+                        _self.close();
+                        return false;
                 });
 
                 //获得target对象(jquery对象)
@@ -161,7 +167,32 @@
         }
             //如果是加载远程数据
         else {
-
+            var _self = this;
+            var _ajaxData = {};
+            _ajaxData[this.remoteTextKey] = text;
+            $esi.loading && $esi.loading.show();
+            $.ajax({
+                "url": this.remoteURL,
+                "method": "post",
+                "data": $.extend(_ajaxData, this.remoteRequestData),
+                "global": false,
+                "success": function (data) {
+                    $esi.loading.hide();
+                    if (data.status = 'y') {
+                        for (var i = 0; i < data.data.length; i++) {
+                            if (_self.filterFunc(text, data.data[i]) == true) {
+                                filteredData.push(data.data[i]);
+                            }
+                        }
+                        _self.jQueryObj.find(".content").empty();
+                        //调用回调函数渲染视图
+                        callback.call(_self, filteredData);
+                    }
+                },
+                "error": function () {
+                    $esi.loading && $esi.loading.hide();
+                }
+            });
         }
     }
 
