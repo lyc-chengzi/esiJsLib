@@ -2,14 +2,38 @@
  *description:  esi自动提示插件
  *author:       lyc
  *create date:  2015-12-16 14:51:28
+
+ *dependencies: [jquery, esiCore.js, esiPluginBase.js]
  **/
-(function ($, $esi) {
+(function (factory) {
+    //amd
+    if (typeof define === "function" && define.amd) {
+        define(['jquery', 'esijs/core/esiCore', 'esijs/plugins/esiPluginBase'], function (jq, esi, base) {
+            console.log(base);
+            return factory(jq, esi, base);
+        });
+    }
+        //同步引用
+    else {
+        if (!$) {
+            console.warn('插件依赖jquery，请先加载jquery');
+            return false;
+        }
+
+        if (!$) {
+            console.warn('插件依赖$esi，请先加载$esi核心库');
+            return false;
+        }
+        factory($, $esi, $esi.plugins.esiPluginBase);
+    }
+
+}(function ($, $esi, _base) {
     function ESIAutocomplete() {
         //继承基类实例属性
-        $esi.plugins.esiPluginBase.call(this);
+        _base.call(this);
         this.pluginIDKey = "esi_autocompleteid";
 
-        //控件实例属性        
+        //控件实例属性
         this.$target = null;//target对象
         this.targetKeyDownIndex = null;//事件延迟处理
         this.localData = null;//本地数据
@@ -21,7 +45,7 @@
     //对象集合定义
     var _instance = {};
     //获得原型属性，并扩展
-    var subPlugins = $.extend($esi.plugins.esiPluginBase.prototype, {
+    var subPlugins = $.extend(_base.prototype, {
         constructor: ESIAutocomplete,
         //控件的公共特性
         attributes: {
@@ -52,7 +76,7 @@
                         _self.onClosingHandler(this);
                         _self.close();
                         return false;
-                });
+                    });
 
                 //获得target对象(jquery对象)
                 this.$target = op.target;
@@ -88,13 +112,13 @@
             this.__dispose(_instance);
         },
         //默认填充方法
-        Render: function (filterData) {
+        Render: function (text, filterData) {
             for (var i = 0; i < filterData.length; i++) {
                 var _data = filterData[i];
                 this.jQueryObj.find(".content").append('<div class="zb-info">' +
-                                      '    <div class="title">' + _data.title + '</div>' +
-                                      '    <div class="des">' + _data.fixDes + '</div>' +
-                                      '</div>');
+                    '    <div class="title">' + _data.title + '</div>' +
+                    '    <div class="des">' + _data.fixDes + '</div>' +
+                    '</div>');
             }
         },
         //过滤方法
@@ -186,7 +210,7 @@
                         }
                         _self.jQueryObj.find(".content").empty();
                         //调用回调函数渲染视图
-                        callback.call(_self, filteredData);
+                        callback.call(_self, text, filteredData);
                     }
                 },
                 "error": function () {
@@ -201,8 +225,8 @@
         _self.jQueryObj.show();
         __getFilterData.call(_self, _self.$target.val(), _self.Render);
     }
-    
+
 
     $esi.plugins.esiAutocomplete = ESIAutocomplete;
-
-})(jQuery, ESIObject);
+    return ESIAutocomplete;
+}));

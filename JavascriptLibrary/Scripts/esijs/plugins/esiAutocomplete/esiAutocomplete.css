@@ -16,6 +16,9 @@
 .esiAutocomplete div{
 	display:block;
 }
+.esiAutocomplete a{
+	cursor:pointer;
+}
     .esiAutocomplete .content {
         position:relative;
         overflow:auto;

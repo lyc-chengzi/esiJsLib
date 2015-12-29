@@ -255,6 +255,7 @@
     <Content Include="jsDemo\classTwo\demo.js" />
     <Content Include="jsDemo\classTwo\jquery-1.9.1.min.js" />
     <Content Include="jsDemo\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\esijs\core\esiTemplete.js" />
     <Content Include="Scripts\esijs\core\esiCoreStyle.css" />
     <Content Include="Scripts\esijs\core\images\loading1.gif" />
     <Content Include="Scripts\esijs\core\images\loading2.gif" />
@@ -345,6 +346,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="requirejsTest\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
