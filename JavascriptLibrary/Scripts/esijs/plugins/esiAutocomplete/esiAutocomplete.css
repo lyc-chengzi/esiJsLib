@@ -1,0 +1,70 @@
+﻿.esiAutocomplete {
+    position:absolute;
+    z-index:999;
+    width:300px;
+    height:400px;
+    overflow:auto;
+    top:20px;
+    left:20px;
+    border:1px solid #95C2BC;
+    font-family:'Microsoft YaHei',Courier New, Courier, monospace;
+    padding-top:2px;
+    padding-bottom:30px;
+    background-color:#ffffff;
+    display:block;
+}
+.esiAutocomplete div{
+	display:block;
+}
+.esiAutocomplete a{
+	cursor:pointer;
+}
+    .esiAutocomplete .content {
+        position:relative;
+        overflow:auto;
+    }
+
+    .esiAutocomplete .tools {
+        background-color:#e3e4e9;
+        height:30px;
+        line-height:30px;
+        position:absolute;
+        bottom:0;
+        left:0;
+        width:100%;
+        text-align:center;
+    }
+
+        .esiAutocomplete .tools a {
+            cursor:pointer;
+            display:inline-block;
+            height:30px;
+        }
+
+            .esiAutocomplete .tools a.close {
+                font-size:14px; 
+                color:red;
+            }
+
+    .esiAutocomplete .zb-info {
+    }
+        .esiAutocomplete .zb-info .title {
+            padding: 0 10px;
+            background-color: #F0F4FF;
+            color: #6AC7BE;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+        .esiAutocomplete .zb-info .des {
+            padding:10px;
+            color:#000;
+            line-height:20px;
+            font-size:12px;
+        }
+
+.des a {
+    color: #6AC7BE;
+    cursor:pointer;
+}

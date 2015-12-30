@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+    <title>选项卡demo1</title>
+    <link rel="stylesheet" href="esiAutocomplete.css" />
+    <style type="text/css">
+        body { margin:0; padding:0;}
+    </style>
+    <script src="demo1.json.js"></script>
+    <script type="text/javascript" src="../../jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../core/esiCore.js"></script>
+    <script type="text/javascript" src="../esiPluginBase.js"></script>
+    <script type="text/javascript" src="jquery.esi.plugins.autocomplete.js"></script>
+    <script>
+        var fac;
+        $(function () {
+            fac = new $esi.plugins.esiAutocomplete();
+            fac.loadDataType = 1;
+            fac.localData = demo1Data;
+            fac.init($("#firstAC"), {
+                "target": $("#test")
+            });
+
+            fac.Render = function (filterData) {
+                if (!filterData || filterData.length == 0) {
+                    this.jQueryObj.find(".content").append("没有您要搜索的数据");
+                } else {
+                    for (var i = 0; i < filterData.length; i++) {
+                        var _data = filterData[i];
+                        this.jQueryObj.find(".content").append('<div class="zb-info">' +
+                                              '    <div class="title">' + _data.title + '</div>' +
+                                              '    <div class="des">' + _data.fixDes + '</div>' +
+                                              '</div>');
+                    }
+                }
+            };
+        });
+    </script>
+</head>
+<body>
+    <div id="firstAC">
+        
+    </div>
+    <div style="position:relative; bottom:0; left:0; padding:100px;">
+        <input id="test" type="text"/>
+    </div>
+</body>
+</html>

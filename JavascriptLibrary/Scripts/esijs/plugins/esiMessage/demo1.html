@@ -3,12 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <script src="../../jquery-1.9.1.min.js"></script>
+    <!--<script src="../../jquery-1.9.1.min.js"></script>-->
+    <script src="../../jquery-3.0.0-alpha1.js"></script>
     <script src="jquery.esi.plugins.message.js"></script>
 
     <link href="esiMessageStyle.css" rel="stylesheet" />
     <script type="text/javascript">
         $(function () {
+            console.log($.fn.jquery);
             var message = $("#demo").esiMessage();
 
             $("#btnShow").on("click", function (e) {
