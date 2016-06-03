@@ -33,6 +33,7 @@
     "grunt-shell": "^1.1.2",
     "grunt-string-replace": "^1.2.0",
     "grunt-strip": "~0.2.1",
+    "gulp": "^3.9.1",
     "time-grunt": "^1.2.2"
   }
 }

@@ -194,3 +194,4 @@ ModelManifest.xml
 # dist js files
 dist/
 **/dist/
+gulpdist/
