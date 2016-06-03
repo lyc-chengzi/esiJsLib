@@ -2,6 +2,24 @@
  * Created by liuyc14 on 2016/6/3.
  */
 module.exports = function (grunt) {
+    grunt.log.ok('this grunt argv has:[env, product, module]');
+    grunt.log.ok('env default is \'dev\']');
+    grunt.log.ok('product default is \'lenovo\']');
+    grunt.log.ok('module default is \'home\']');
+
+
+    var env = grunt.option('env');
+    if(!env){
+        grunt.log.error('the argument -> env , must be input!');
+        return;
+    }
+    grunt.log.ok(env);
+
+    var product = grunt.option('product') || 'lenovo';
+    grunt.log.ok(product);
+
+    var module = grunt.option('module') || 'productList';
+    grunt.log.ok(module);
     grunt.initConfig({
         pathConfig: {
             distPath: 'dist',
