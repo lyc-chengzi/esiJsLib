@@ -90,4 +90,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('default', ['clean', 'copy', 'concat', 'uglify:buildall']);
+
+    grunt.registerTask('test', '测试一个test任务', function(first, second, third){
+        grunt.log.oklns('第一个参数是:' + first);
+        grunt.log.oklns('第二个参数是:' + second);
+        grunt.log.oklns('第三个参数是:' + third);
+    });
 };
