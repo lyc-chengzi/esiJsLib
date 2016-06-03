@@ -190,3 +190,7 @@ ModelManifest.xml
 
 # idea
 .idea/
+
+# dist js files
+dist/
+**/dist/

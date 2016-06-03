@@ -1,0 +1,38 @@
+{
+  "name": "esi-js-lib",
+  "version": "1.0.0",
+  "description": "my js library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyc-chengzi/esiJsLib.git"
+  },
+  "keywords": [
+    "js",
+    "library"
+  ],
+  "author": "lyc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lyc-chengzi/esiJsLib/issues"
+  },
+  "homepage": "https://github.com/lyc-chengzi/esiJsLib#readme",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compress": "^0.14.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.1",
+    "grunt-shell": "^1.1.2",
+    "grunt-string-replace": "^1.2.0",
+    "grunt-strip": "~0.2.1",
+    "time-grunt": "^1.2.2"
+  }
+}
