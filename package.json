@@ -37,6 +37,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.3",
+    "require-dir": "^0.3.0",
     "rimraf": "^2.5.2",
     "time-grunt": "^1.2.2",
     "yargs": "^4.7.1"

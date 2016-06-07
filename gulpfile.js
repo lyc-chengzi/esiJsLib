@@ -3,80 +3,40 @@
  */
 var gulp = require('gulp');
 var argv = require('yargs').argv;
-var rimraf = require('rimraf');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename')
+var rdir = require('require-dir');
 
 /**
- * 当前运行环境
+ * gulp配置
  */
-var env = {
-    dev: 'dev',
-    product: 'product'
+global.myGulpConfig = {
+    //当前运行环境
+    __env__:{
+        dev: 'dev',
+        product: 'product'
+    },
+    pathConfig: {
+        distPath: 'gulpdist',
+        srcPath: 'JavascriptLibrary/Scripts'
+    }
 };
+myGulpConfig.copyConfig = {
+    jquery: myGulpConfig.pathConfig.srcPath + '/esijs/jquery-*.min.js'
+};
+var env = myGulpConfig.__env__;
 /**
- * 路径配置
+ * 获取当前输入的参数
  */
-var pathConfig = {
-    distPath: 'gulpdist',
-    srcPath: 'JavascriptLibrary/Scripts'
-};
-
-var copyConfig = {
-    jquery: pathConfig.srcPath + '/esijs/jquery-*.min.js'
-};
-
-
 global.runENV = argv.env || process.env.NODE_ENV || env.dev;
 
-/**
- * clean任务，清空发布文件夹下的内容
- */
-gulp.task('clean', function (cb) {
-    rimraf(pathConfig.distPath, cb);
-});
+//获取任务列表
+var dir = rdir("./gulpTasks");
 
-/**
- * copy任务，将第三方利库拷贝到相应的文件夹下
- */
-gulp.task('copy', ['clean'], function () {
-    for (libName in copyConfig) {
-        gulp
-            .src(copyConfig[libName])
-            .pipe(gulp.dest(pathConfig.distPath + "/lib/" + libName));
-    }
-});
+gulp.task(env.dev, ['clean', 'copy', 'concat']);
+gulp.task(env.product, ['clean', 'copy', 'concat']);
 
-/**
- * concat任务，将公共组件打包成一个文件
- */
-gulp.task('concat', ['clean'], function () {
-    var stream =
-        gulp
-            .src([
-                pathConfig.srcPath + '/esijs/core/esiCore.js',
-                pathConfig.srcPath + '/esijs/plugins/esiPluginBase.js',
-                pathConfig.srcPath + '/esijs/plugins/**/jquery.esi.plugins*.js',
-            ])
-            .pipe(concat('esi.js'))
-            .pipe(gulp.dest(pathConfig.distPath + '/commonjs/'));
-    if(global.runENV === env.product) {
-        stream
-            .pipe(uglify())
-            .pipe(rename('esi.min.js'))
-            .pipe(gulp.dest(pathConfig.distPath + '/commonjs/'));
-    }
-    return stream;
-});
-
-gulp.task(env.dev, function () {
-    gulp.run(['clean', 'copy', 'concat']);
-});
-
-gulp.task(env.product, function () {
-    global.runENV = env.product;
-    gulp.run(['clean', 'copy', 'concat']);
+var watcher = gulp.watch(myGulpConfig.pathConfig.srcPath + "/**/*.js", ['default']);
+watcher.on('change', function (event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 });
 
 if (global.runENV === env.dev) {
@@ -86,6 +46,7 @@ if (global.runENV === env.dev) {
 }
 
 
+/*
 gulp.task('oneee', function () {
     console.log('run the task: one');
     var s = 10;
@@ -96,6 +57,7 @@ gulp.task('oneee', function () {
         console.log('task one is end:' + s);
     }, 1);
 });
+*/
 
 /* 保证执行顺序方法一：使用回调函数cb
  gulp.task('one', function (cb) {
